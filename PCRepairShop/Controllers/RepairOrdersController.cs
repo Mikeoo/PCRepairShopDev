@@ -21,19 +21,23 @@ namespace PCRepairShop.Controllers
         public ActionResult Index()
         {
             var countAwaiting = db.RepairOrders.Where(o => o.Status == Status.Awaiting).Count();
-            IDictionary<int, string> d = new Dictionary<int, string>();
-            d.Add(new KeyValuePair<int, string>(1, countAwaiting.ToString()));
+            var countProcessing = db.RepairOrders.Where(o => o.Status == Status.Processing).Count();
+            var countAwaitingParts = db.RepairOrders.Where(o => o.Status == Status.AwaitingParts).Count();
+            var countClosed = db.RepairOrders.Where(o => o.Status == Status.Closed).Count();
+            IDictionary<string, int> d = new Dictionary<string, int>();
+            d.Add(new KeyValuePair<string, int>("Awaiting", countAwaiting));
+            d.Add(new KeyValuePair<string, int>("Processing", countProcessing));
+            d.Add(new KeyValuePair<string, int>("AwaitingParts", countAwaitingParts));
+            d.Add(new KeyValuePair<string, int>("Closed", countClosed));
 
-            
-            
             var newvm = new RepairOrderVM()
             {
                 RepairOrders = db.RepairOrders.ToList(),
-                StatusCounter = new List<int>()
+                StatusCounter = new Dictionary<string, int>()
             };
-            foreach (KeyValuePair<int, string> ele in d)
+            foreach (KeyValuePair<string, int> ele in d)
             {
-                newvm.StatusCounter.Add(d.All);
+                newvm.StatusCounter.Add(ele.Key, ele.Value);
             }
             
             return View(newvm); 

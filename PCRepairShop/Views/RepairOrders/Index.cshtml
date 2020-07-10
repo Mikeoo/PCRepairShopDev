@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-<div>Awaiting count : @Model.StatusCounter.FirstOrDefault()</div>
+<div>Order status : Awaiting count : @Model.StatusCounter["Awaiting"], Processing: @Model.StatusCounter["Processing"] , Awaiting Parts: @Model.StatusCounter["AwaitingParts"], Closed: @Model.StatusCounter["Closed"]</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")

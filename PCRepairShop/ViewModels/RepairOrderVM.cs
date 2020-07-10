@@ -9,6 +9,6 @@ namespace PCRepairShop.ViewModels
     public class RepairOrderVM
     {
         public List<RepairOrder> RepairOrders { get; set; }
-        public List<int> StatusCounter { get; set; }
+        public Dictionary<string, int> StatusCounter { get; set; }
     }
 }
