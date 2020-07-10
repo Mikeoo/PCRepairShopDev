@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using PCRepairShop.DAL;
 using PCRepairShop.Models;
 using PCRepairShop.ViewModels;
@@ -29,7 +31,7 @@ namespace PCRepairShop.Controllers
             d.Add(new KeyValuePair<string, int>("Processing", countProcessing));
             d.Add(new KeyValuePair<string, int>("AwaitingParts", countAwaitingParts));
             d.Add(new KeyValuePair<string, int>("Closed", countClosed));
-
+            
             var newvm = new RepairOrderVM()
             {
                 RepairOrders = db.RepairOrders.ToList(),
