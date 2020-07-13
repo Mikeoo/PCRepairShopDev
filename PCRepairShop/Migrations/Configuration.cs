@@ -11,7 +11,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "PCRepairShop.DAL.PCRepairContext";
         }
 
         protected override void Seed(PCRepairShop.DAL.PCRepairContext context)
@@ -20,23 +19,28 @@
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
-           
+            context.Customers.AddOrUpdate(x => x.Id,
+                new Models.Customer() { FirstName = "Jane" },
+                new Models.Customer() { FirstName = "Piet" },
+                new Models.Customer() { FirstName = "Rowan" });
+            context.SaveChanges();
             context.RepairOrders.AddOrUpdate(x => x.Id,
-                new Models.RepairOrder()
+                new RepairOrder()
                 {
                     StartDate = new System.DateTime(2020, 07, 07),
                     EndDate = new System.DateTime(2020, 07, 12),
                     Status = Status.Awaiting,
-
+                    Customer = context.Customers.FirstOrDefault(c => c.FirstName == "Rowan")
                 },
-                new Models.RepairOrder()
+                new RepairOrder()
                 {
                     StartDate = new System.DateTime(2020, 07, 07),
                     EndDate = new System.DateTime(2020, 07, 10),
-                    Status = Status.Closed,
-
+                    Status = Status.Awaiting,
+                    Customer = context.Customers.FirstOrDefault(c => c.FirstName == "Jane")
                 }
                 );
+            context.SaveChanges();
         }
     }
 }

@@ -18,5 +18,6 @@ namespace PCRepairShop.Models
         public DateTime EndDate { get; set; }
         public Status Status { get; set; }
         public int Counter { get; set; }
+        public Customer Customer { get; set; }
     }
 }

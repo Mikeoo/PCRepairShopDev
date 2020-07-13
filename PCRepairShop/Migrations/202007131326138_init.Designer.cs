@@ -13,7 +13,7 @@ namespace PCRepairShop.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202007101044439_init"; }
+            get { return "202007131326138_init"; }
         }
         
         string IMigrationMetadata.Source

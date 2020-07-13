@@ -12,6 +12,7 @@ namespace PCRepairShop.DAL
         }
 
         public DbSet<RepairOrder> RepairOrders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

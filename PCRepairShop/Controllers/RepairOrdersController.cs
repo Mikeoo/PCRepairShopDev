@@ -35,7 +35,8 @@ namespace PCRepairShop.Controllers
             var newvm = new RepairOrderVM()
             {
                 RepairOrders = db.RepairOrders.ToList(),
-                StatusCounter = new Dictionary<string, int>()
+                StatusCounter = new Dictionary<string, int>(),
+                
             };
             foreach (KeyValuePair<string, int> ele in d)
             {
@@ -63,6 +64,7 @@ namespace PCRepairShop.Controllers
         // GET: RepairOrders/Create
         public ActionResult Create()
         {
+
             return View();
         }
 

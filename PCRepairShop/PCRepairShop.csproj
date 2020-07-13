@@ -127,17 +127,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RepairOrdersController.cs" />
     <Compile Include="DAL\PCRepairShopContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007101044439_init.cs" />
-    <Compile Include="Migrations\202007101044439_init.designer.cs">
-      <DependentUpon>202007101044439_init.cs</DependentUpon>
+    <Compile Include="Migrations\202007131326138_init.cs" />
+    <Compile Include="Migrations\202007131326138_init.designer.cs">
+      <DependentUpon>202007131326138_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\RepairOrder.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -246,8 +249,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007101044439_init.resx">
-      <DependentUpon>202007101044439_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007131326138_init.resx">
+      <DependentUpon>202007131326138_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
