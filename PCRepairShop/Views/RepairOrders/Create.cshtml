@@ -7,6 +7,55 @@
 @{
     //TODO: Jquery datepicker
 }
+<script src="~/scripts/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/le-frog/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        DateTimePicker();
+        $("#txtFromDate").change(function () {
+            var date2 = $("#txtFromDate").datepicker('getDate', '+1d');
+            console.log(date2);
+            date2.setDate(date2.getDate() + 1);
+            $("#txtToDate").datepicker('option', 'minDate', date2);
+            $("#txtToDate").datepicker('setDate', date2);
+        });
+
+        $("#btnSave").click(function () {
+            alert($("#txtFromDate").val());
+            alert($("#txtToDate").val());
+            var objStudentModel = { FromDate: $("#txtFromDate").val(), ToDate: $("#txtToDate").val() };
+            $.ajax({
+                async: true,
+                type: 'POST',
+                dataType: 'JSON',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(objStudentModel),
+                success: function () {
+                    alert('da');
+                },
+                error: function () {
+
+                }
+            });
+        });
+    });
+
+    function DateTimePicker() {
+        $(".datepicker").datepicker({
+            dateFormat: 'dd-M-yy',
+            changeMonth: true,
+            changeYear: true,
+            showOn: 'button',
+            sideBySide: true,
+            controlType: 'select',
+            buttonText: '<span class="glyphicon glyphicon-calendar" ></span>',
+            minDate: new Date()
+        });
+    }
+
+</script>
 
 @using (Html.BeginForm())
 {
@@ -19,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>

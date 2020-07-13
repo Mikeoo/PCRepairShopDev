@@ -40,3 +40,11 @@ a.bg-awaiting:hover,
 a.bg-awaiting:focus {
     background-color: lightcoral;
 }
+
+/*input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+    visibility: hidden !important;
+}*/
