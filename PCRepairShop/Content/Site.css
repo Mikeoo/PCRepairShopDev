@@ -31,3 +31,12 @@ a.bg-processing:hover,
 a.bg-processing:focus {
     background-color: khaki;
 }
+
+.bg-awaiting {
+    background-color: aliceblue;
+}
+
+a.bg-awaiting:hover,
+a.bg-awaiting:focus {
+    background-color: lightcoral;
+}

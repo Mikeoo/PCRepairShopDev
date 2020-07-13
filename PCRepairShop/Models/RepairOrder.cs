@@ -10,6 +10,7 @@ namespace PCRepairShop.Models
     {
         public int Id { get; set; }
         [Display(Name = "Planned Start Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         [Display(Name = "End Date")]

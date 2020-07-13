@@ -31,7 +31,7 @@ namespace PCRepairShop.Controllers
             d.Add(new KeyValuePair<string, int>("Processing", countProcessing));
             d.Add(new KeyValuePair<string, int>("AwaitingParts", countAwaitingParts));
             d.Add(new KeyValuePair<string, int>("Closed", countClosed));
-            
+
             var newvm = new RepairOrderVM()
             {
                 RepairOrders = db.RepairOrders.ToList(),
