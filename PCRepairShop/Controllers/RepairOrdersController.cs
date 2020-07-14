@@ -64,8 +64,11 @@ namespace PCRepairShop.Controllers
         // GET: RepairOrders/Create
         public ActionResult Create()
         {
-
-            return View();
+            var newvm = new CreateOrderVM()
+            {
+                customers = db.Customers.ToList(),
+            };
+            return View(newvm);
         }
 
         // POST: RepairOrders/Create
@@ -73,16 +76,18 @@ namespace PCRepairShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StartDate,EndDate,Status,Counter")] RepairOrder repairOrder)
+        public ActionResult Create(CreateOrderVM createOrderVM)
         {
             if (ModelState.IsValid)
             {
-                db.RepairOrders.Add(repairOrder);
+                createOrderVM.RepairOrder.Customer = db.Customers.Find(createOrderVM.RepairOrder.Customer.Id);
+                db.RepairOrders.Add(createOrderVM.RepairOrder);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(repairOrder);
+            createOrderVM.customers = db.Customers.ToList();
+            return View(createOrderVM);
         }
 
         // GET: RepairOrders/Edit/5

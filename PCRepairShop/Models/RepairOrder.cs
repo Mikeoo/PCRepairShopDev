@@ -10,14 +10,15 @@ namespace PCRepairShop.Models
     {
         public int Id { get; set; }
         [Display(Name = "Planned Start Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         [Display(Name = "End Date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
         public Status Status { get; set; }
-        public int Counter { get; set; }
         public Customer Customer { get; set; }
+        public string Description { get; set; }
     }
 }
