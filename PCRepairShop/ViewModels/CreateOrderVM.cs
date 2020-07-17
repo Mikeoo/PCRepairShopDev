@@ -10,5 +10,6 @@ namespace PCRepairShop.ViewModels
     {
         public RepairOrder RepairOrder { get; set; }
         public List<Customer> customers { get; set; }
+        public List<RepairGuy> RepairGuys { get; set; }
     }
 }

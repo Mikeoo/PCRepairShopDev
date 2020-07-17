@@ -67,6 +67,8 @@ namespace PCRepairShop.Controllers
             var newvm = new CreateOrderVM()
             {
                 customers = db.Customers.ToList(),
+                RepairGuys = db.RepairGuys.ToList(),
+
             };
             return View(newvm);
         }
@@ -81,6 +83,8 @@ namespace PCRepairShop.Controllers
             if (ModelState.IsValid)
             {
                 createOrderVM.RepairOrder.Customer = db.Customers.Find(createOrderVM.RepairOrder.Customer.Id);
+                createOrderVM.RepairOrder.RepairGuy = db.RepairGuys.Find(createOrderVM.RepairOrder.RepairGuy.Id);
+                //createOrderVM.RepairOrder.RepairGuy = db.RepairGuys.Find(createOrderVM.RepairOrder.RepairGuy.Id);
                 db.RepairOrders.Add(createOrderVM.RepairOrder);
                 db.SaveChanges();
                 return RedirectToAction("Index");

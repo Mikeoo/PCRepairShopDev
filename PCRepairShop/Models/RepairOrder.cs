@@ -20,5 +20,7 @@ namespace PCRepairShop.Models
         public Status Status { get; set; }
         public Customer Customer { get; set; }
         public string Description { get; set; }
+        public RepairGuy RepairGuy { get; set; }
+        public Part UsedPart { get; set; }
     }
 }

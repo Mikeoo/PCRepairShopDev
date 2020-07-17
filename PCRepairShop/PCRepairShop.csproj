@@ -129,22 +129,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RepairGuysController.cs" />
     <Compile Include="Controllers\RepairOrdersController.cs" />
     <Compile Include="DAL\PCRepairShopContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007131326138_init.cs" />
-    <Compile Include="Migrations\202007131326138_init.designer.cs">
-      <DependentUpon>202007131326138_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007141109250_AddedRepairGuy.cs" />
-    <Compile Include="Migrations\202007141109250_AddedRepairGuy.designer.cs">
-      <DependentUpon>202007141109250_AddedRepairGuy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007141229557_testInit.cs" />
-    <Compile Include="Migrations\202007141229557_testInit.designer.cs">
-      <DependentUpon>202007141229557_testInit.cs</DependentUpon>
+    <Compile Include="Migrations\202007171129101_completed-seed-data-.cs" />
+    <Compile Include="Migrations\202007171129101_completed-seed-data-.designer.cs">
+      <DependentUpon>202007171129101_completed-seed-data-.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -247,6 +240,11 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\RepairGuys\Create.cshtml" />
+    <Content Include="Views\RepairGuys\Delete.cshtml" />
+    <Content Include="Views\RepairGuys\Details.cshtml" />
+    <Content Include="Views\RepairGuys\Edit.cshtml" />
+    <Content Include="Views\RepairGuys\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,14 +263,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007131326138_init.resx">
-      <DependentUpon>202007131326138_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007141109250_AddedRepairGuy.resx">
-      <DependentUpon>202007141109250_AddedRepairGuy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007141229557_testInit.resx">
-      <DependentUpon>202007141229557_testInit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007171129101_completed-seed-data-.resx">
+      <DependentUpon>202007171129101_completed-seed-data-.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
